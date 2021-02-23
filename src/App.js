@@ -1,5 +1,5 @@
 import './App.css';
-import BumEdit from './RosaRay/BumEdit'
+import BumEdit from './RosaRay/BumEditWithHand'
 
 function App() {
   return (
