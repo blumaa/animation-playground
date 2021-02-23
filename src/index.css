@@ -4,7 +4,7 @@ body {
 }
 
 svg {
-  height: 50rem;
+  height: 30rem;
   border: 1px solid green;
 }
 
@@ -14,4 +14,10 @@ svg {
 
 #body{
   visibility: hidden;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  background: blue;
 }
