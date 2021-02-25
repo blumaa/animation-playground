@@ -82,7 +82,7 @@ const BumEdit = () => {
     }, [])
 
     useEffect(()=>{
-        timeLinePause ? animation.current.pause() : animation.current.play()
+        timeLinePause ? animation.current.reverse() : animation.current.play()
     }, [timeLinePause])
 
     
