@@ -24,6 +24,7 @@ svg {
   border: 1px solid teal;
   margin: 2rem;
   box-shadow: 5px 5px 5px 0px rgba(134, 134, 134, 0.75);
+  overflow: hidden;
 }
 
 .redHair{
