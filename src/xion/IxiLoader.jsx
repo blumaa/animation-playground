@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
-import '../stylesheets/ixi-loader.css'
 
 
 const IxiLoaderAnimation = () => {
@@ -79,13 +78,14 @@ const IxiLoaderAnimation = () => {
   }, [])
 
   return (
-    <div className="IxiLoaderAnimation">
       <svg
         id="Layer_1"
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         xmlnsXlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 598.01 519.97">
+        viewBox="0 0 598.01 519.97"
+        className="ixi-loader"
+        >
         <defs>
           <style />
           <linearGradient
@@ -430,7 +430,7 @@ const IxiLoaderAnimation = () => {
               </g>
             </g>
           </g>
-          <path
+          {/* <path
             className="cls-28"
             d="M285.89,431.93a1.63,1.63,0,0,1,1.55-.92l3.59,0c1.54,0,3.08,0,4.62,0a3.6,3.6,0,0,1,3.23,1.69l6.37,9.35,5.16,7.55a.49.49,0,0,1,0,.66q-5.58,8.22-11.14,16.47c-.24.34-.49.67-.76,1a3.52,3.52,0,0,1-2.88,1.3c-2.58,0-5.15,0-7.73,0l-.67,0a1.55,1.55,0,0,1-1.35-.85v-.8a5.37,5.37,0,0,1,1.12-2q2.1-3,4.18-6.12L297,450.6c.36-.54.36-.54,0-1.09-2.54-3.8-5.11-7.58-7.67-11.37-.93-1.37-1.83-2.77-2.79-4.11a3.78,3.78,0,0,1-.65-1.3Z"
             transform="translate(-5.99 -3.83)"
@@ -454,12 +454,12 @@ const IxiLoaderAnimation = () => {
             className="cls-28"
             d="M317.33,459.47l.26.34,6.09,8.84a.48.48,0,0,1,0,.66q-3.44,5-6.85,10.1a10.91,10.91,0,0,1-.84,1.09,3.25,3.25,0,0,1-2.47,1.13h-8.3l-.36,0a1.32,1.32,0,0,1-1.39-1.23,1.31,1.31,0,0,1,.2-.77A4.28,4.28,0,0,1,304,479l13.05-19.14Z"
             transform="translate(-5.99 -3.83)"
-          />
+          />*/}
           <path
             className="cls-30"
             d="M228.12,509.38h187.5v6.12a.86.86,0,0,1-.85.86H229a.86.86,0,0,1-.85-.86h0v-6.12Z"
             transform="translate(-5.99 -3.83)"
-          />
+          /> 
           <g className="cls-31">
             <g className="cls-32">
               <g className="cls-32">
@@ -490,7 +490,6 @@ const IxiLoaderAnimation = () => {
           </g>
         </g>
       </svg>
-    </div>
   )
 }
 

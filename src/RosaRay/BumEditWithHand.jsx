@@ -50,44 +50,54 @@ const BumEdit = () => {
     const bLine20 = useRef(null)
     
     const svg = useRef(null)
-    const [timeLinePause, setTimeLinePause] = useState(true)
+    const [timeLinePause, setTimeLinePause] = useState(false)
     const animation = useRef(null)
+
+    const [timeLine2Pause, setTimeLine2Pause] = useState(false)
+    const timeLine2 = useRef(null)
     
     useEffect(() => {        
         const redHairs = [redHair1.current, redHair2.current, redHair3.current, redHair4.current, redHair5.current, redHair6.current, redHair7.current, redHair8.current, redHair9.current, redHair10.current, redHair11.current, redHair12.current, redHair13.current, redHair14.current, redHair15.current, redHair16.current, redHair17.current, redHair18.current, redHair19.current]
         const bLines = [bLine1.current, bLine2.current, bLine3.current, bLine4.current, bLine5.current, bLine6.current, bLine7.current, bLine8.current, bLine9.current, bLine10.current, bLine11.current, bLine12.current, bLine13.current, bLine14.current, bLine15.current, bLine16.current, bLine17.current, bLine18.current, bLine19.current, bLine20.current, ]
 
-        gsap.set("#hand", {transformOrigin: "right center"})
         gsap.set(".redHair", {fill: "none"})
         gsap.set(".bLines", {fill: "none"})
 
-        Draggable.create("#hand", {
-            type:"rotation",
-            // bounds: svg.current,
-            inertia: true,
-            onClick: function() {
-                console.log("clicked");
-            },
-            onDragEnd: function() {
-                console.log("drag ended");
-            }
-        });
+        // Draggable.create("#hand", {
+        //     type:"rotation",
+        // });
+
 
         const rosaHair = () => gsap.fromTo(redHairs, 20, {drawSVG: "0% 0%"}, {drawSVG: "0% 100%", stagger: { from: "random", amount: .5}, visibility: "visible", stroke: "#757575", ease: "rough({ template: none.out, strength: 1, points: 20, taper: 'none', randomize: true, clamp: false})"})
         const rosaHair2 = () => gsap.to(redHairs, 4, {stagger: .5, fill: "#ff4d4d"})
         const bodyOutline = () => gsap.fromTo(bLines, 20, {drawSVG: "0% 0%"}, {drawSVG: "0% 100%", stagger: { from: "random", amount: .5}, visibility: "visible", ease: "rough({ template: none.out, strength: 1, points: 20, taper: 'none', randomize: true, clamp: false})"})
         const bodyLinesFill = () => gsap.to(bLines, 20, {stagger: .5, fill: "#4a4a4a"})
 
-        animation.current = gsap.timeline({paused: false, repeat: 0}).addLabel("start").add(rosaHair()).add(rosaHair2(), "-=15").add(bodyOutline(), "start").add(bodyLinesFill(), "-=15")
+        animation.current = gsap.timeline({paused: true, repeat: -1, yoyo:true}).addLabel("start").add(rosaHair()).add(rosaHair2(), "-=15").add(bodyOutline(), "start").add(bodyLinesFill(), "-=15")
     }, [])
 
     useEffect(()=>{
-        timeLinePause ? animation.current.reverse() : animation.current.play()
+
+        gsap.set("#hand", {transformOrigin: "right center"})
+        const spank = () => gsap.to("#hand", 2, { rotation: 360})
+        timeLine2.current = gsap.timeline({paused: false}).add(spank())
+        
+    }, [])
+
+    useEffect(()=>{
+        if (timeLinePause) {
+            animation.current.reverse();
+            timeLine2.current.reverse();
+
+        } else {
+            animation.current.play();
+            timeLine2.current.play();
+        }
     }, [timeLinePause])
 
     
     return (
-        <svg version="1.1" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" ref={svg}>
+        <svg version="1.1" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" ref={svg} className="BumEdit">
             <defs>
                 <filter id="filter1504" x="-.0046461" y="-.0024128" width="1.0093" height="1.0048" colorInterpolationFilters="sRGB">
                     <feGaussianBlur stdDeviation="0.04863734"/>
@@ -140,7 +150,7 @@ const BumEdit = () => {
                 <path ref={redHair18} className="redHair" transform="translate(-223.79,-103.18)" d="m279 252.46a24.13 24.13 0 0 1-4.36-2.83l0.74 0.54 0.78 0.48a15.56 15.56 0 0 0 1.59 0.91 28.87 28.87 0 0 1-7.42-6.33 40.67 40.67 0 0 1-9.33-21.39 24.39 24.39 0 0 1 1-11.1 13.24 13.24 0 0 1 1.18-2.35 10.9 10.9 0 0 1 0.77-1l0.42-0.45 0.22-0.24 0.3-0.3a22.53 22.53 0 0 0 4.22-5.66 36.71 36.71 0 0 0 3.38-9.77c0.36-1.65 0.63-3.3 0.86-4.94l0.32-2.46c0.08-0.83 0.19-1.6 0.24-2.51a26.91 26.91 0 0 0-6.59-19.41 26.47 26.47 0 0 0-3.85-3.56c-1.36-1-2.72-1.92-4-2.82-2.57-1.75-5-3.61-6-5.76a5.49 5.49 0 0 1-0.42-3.32 6.24 6.24 0 0 1 1.71-3.06 8.46 8.46 0 0 1 7.08-2.23c2.13 0.21 3.71 0.85 3.58 0.63a8.51 8.51 0 0 0-4-1.14 9.29 9.29 0 0 0-5.88 1.37 7 7 0 0 0-3.16 4.73 6.71 6.71 0 0 0 1.93 5.34 28.68 28.68 0 0 0 5.29 4.29c1 0.67 2 1.36 3 2.09a27 27 0 0 1 2.92 2.46 25.32 25.32 0 0 1 4.57 6.08 25.77 25.77 0 0 1 3.09 14.64 63.78 63.78 0 0 1-2.83 14.22 28.32 28.32 0 0 1-3.25 6.6 20.91 20.91 0 0 1-2.38 2.85c-0.45 0.44-0.92 0.88-1.25 1.23l-0.55 0.56-0.48 0.63a15.48 15.48 0 0 0-2.54 5.94 27.74 27.74 0 0 0-0.58 6.63 36.15 36.15 0 0 0 0.77 6.65 41.72 41.72 0 0 0 1.81 6.43c0.26 0.76 0.55 1.46 0.85 2.18s0.61 1.42 1 2.16a35.19 35.19 0 0 0 2.81 4.86 31.36 31.36 0 0 0 6.13 6.58 23.79 23.79 0 0 0 7 3.92 18.06 18.06 0 0 0 9.41 1c0.63-0.17 0.61-0.33 0-0.48a12 12 0 0 0-1.2-0.26 16.51 16.51 0 0 1-1.87-0.34l-1.16-0.24c-0.41-0.09-0.84-0.24-1.29-0.36a28.93 28.93 0 0 1-2.88-1 26.88 26.88 0 0 1-6.43-4 25.43 25.43 0 0 0 4.73 3.31z"/>
                 <path ref={redHair19} className="redHair" transform="translate(-223.79,-103.18)" d="m280.27 249.75a21.51 21.51 0 0 1-3.82-2.51l0.65 0.48 0.7 0.42a12.06 12.06 0 0 0 1.39 0.79 25.86 25.86 0 0 1-6.59-5.65 37.72 37.72 0 0 1-8.6-19.74 21.41 21.41 0 0 1 0.78-9.69 9.52 9.52 0 0 1 0.88-1.78 6.87 6.87 0 0 1 0.52-0.71l0.29-0.3 0.13-0.16 0.34-0.34a25.29 25.29 0 0 0 4.8-6.42 39.83 39.83 0 0 0 3.68-10.56c0.38-1.74 0.66-3.46 0.89-5.16l0.33-2.53c0.09-0.86 0.19-1.58 0.25-2.64a29.53 29.53 0 0 0-11.62-25.58c-1.47-1.1-2.86-2-4.12-2.89a32.26 32.26 0 0 1-3.29-2.49 7.37 7.37 0 0 1-1.73-2.07 2.59 2.59 0 0 1-0.21-1.42 3.38 3.38 0 0 1 0.9-1.57 4 4 0 0 1 0.85-0.68l0.46-0.25c0.17-0.07 0.36-0.14 0.56-0.2a7 7 0 0 1 2.77-0.24c1.61 0.16 2.92 0.64 2.81 0.44a6.09 6.09 0 0 0-3.09-0.93 6.41 6.41 0 0 0-4 0.86 4.13 4.13 0 0 0-1.84 2.64 3.14 3.14 0 0 0 0.17 1.35 4.76 4.76 0 0 0 1 1.6 26.59 26.59 0 0 0 4.73 3.8c1 0.67 2 1.37 3.08 2.15l0.81 0.6 0.83 0.68c0.57 0.45 1.08 0.95 1.6 1.45a28.28 28.28 0 0 1 5.11 6.79 28.61 28.61 0 0 1 3.44 16.34c0 0.37-0.06 0.68-0.09 1l-0.11 0.91-0.24 1.83c-0.17 1.23-0.36 2.47-0.59 3.71a50.35 50.35 0 0 1-1.94 7.49 30.64 30.64 0 0 1-3.6 7.31 24.23 24.23 0 0 1-2.73 3.28l-0.77 0.75-0.19 0.18-0.09 0.1-0.19 0.19-0.4 0.39-0.34 0.46a12.32 12.32 0 0 0-2 4.79 24.79 24.79 0 0 0-0.53 5.9 33.7 33.7 0 0 0 0.7 6.08 38.72 38.72 0 0 0 1.67 6 35.9 35.9 0 0 0 4.27 8.55c3.22 4.69 7.75 8.15 11.76 9.47a15.46 15.46 0 0 0 8.25 0.76c0.63-0.17 0.61-0.33 0-0.48a10 10 0 0 0-1.05-0.26 14.39 14.39 0 0 1-1.63-0.32l-1-0.21c-0.36-0.09-0.72-0.23-1.11-0.33a25.68 25.68 0 0 1-2.49-0.9 24.26 24.26 0 0 1-5.62-3.51 22.84 22.84 0 0 0 4.22 2.98z"/>
             </g>
-            <g id="hand" transform="matrix(0 .48207 -.44421 0 133.09 228.8)" fill="#c5ad9d" strokeWidth=".83039">
+            <g id="hand" transform="matrix(0 .48207 -.44421 0 133.09 228.8)" fill="#1b1b1a" strokeWidth=".83039" onClick={() => setTimeLinePause(!timeLinePause)}>
                 <path d="m29.601 195.3c-4.0869-0.80663-8.1739-1.6025-12.1-2.0004-3.9256-0.39794-7.6253-0.80663-11.443-0.39794-3.8181 0.39794-7.1952 2.4629-11.443 2.7963-4.2591 0.3334-11.347-1.3336-14.068-0.80664-2.7317 0.53776-3.5492 2.8609-2.2908 3.9901 1.2582 1.1293 5.7754 2.2048 9.8086 2.8071 4.0332 0.60229 9.744 0.26888 14.39 0.79588 4.657 0.53777 11.25 2.0005 13.498 2.3984z" fillRule="evenodd"/>
                 <path d="m29.601 195.3c-4.0869-0.80663-8.1739-1.6025-12.1-2.0004-3.9256-0.39794-7.6253-0.80663-11.443-0.39794-3.8181 0.39794-7.1952 2.4629-11.443 2.7963-4.2591 0.3334-11.347-1.3336-14.068-0.80664-2.7317 0.53776-3.5492 2.8609-2.2908 3.9901 1.2582 1.1293 5.7754 2.2048 9.8086 2.8071 4.0332 0.60229 9.744 0.26888 14.39 0.79588 4.657 0.53777 11.25 2.0005 13.498 2.3984" stroke="#000" strokeLinejoin="round" strokeWidth=".83039"/>
                 <path transform="matrix(.13763 0 0 .13763 -40.468 190.14)" d="m616.31 13.597c-17.817 5.8607-70.641 26.412-106.66 35.164-36.102 8.8301-68.531 12.268-109.87 17.582-41.416 5.3137-94.162 13.128-138.39 14.222-44.307 1.1721-88.927-2.1099-127.3-7.3454-64.311-11.487-83.691-45.401-102.68-24.224-18.989 21.177 64.39 50.949 100.49 65.249 37.196 14.066 73.611 17.816 122.76 18.989 49.855 0 130.19-7.58 171.84-11.878 41.728-4.298 43.916-11.487 78.143-13.753 34.226-2.266 95.68-29.572 122.25-29.572z" clipPath="url(#clipEmfPath1-3)" fillRule="evenodd"/>

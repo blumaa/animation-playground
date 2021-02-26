@@ -1,11 +1,11 @@
+@import 'careflex-background.scss';
+@import 'ixi-loader.scss';
+@import 'bum-edit.scss';
+@import 'xion-logo.scss';
+
 body {
   margin: 0;
   /* background-color: aqua; */
-}
-
-svg {
-  height: 30rem;
-  border: 1px solid green;
 }
 
 .gallery{
@@ -14,29 +14,19 @@ svg {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
+  border: 1px solid teal;
 }
 
 .gallery-window{
+  height: 30rem;
+  // width: 50rem;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   border: 1px solid teal;
   margin: 2rem;
   box-shadow: 5px 5px 5px 0px rgba(134, 134, 134, 0.75);
   overflow: hidden;
-}
-
-.redHair{
-  visibility: hidden;
-}
-
-#body{
-  visibility: hidden;
-}
-
-.box {
-  width: 100px;
-  height: 100px;
-  background: blue;
 }
