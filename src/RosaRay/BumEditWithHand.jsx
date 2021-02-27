@@ -2,12 +2,13 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 import { DrawSVGPlugin } from "gsap/DrawSVGPlugin";
-
+import { Transition } from "react-transition-group";
 gsap.registerPlugin(Draggable);
 gsap.registerPlugin(DrawSVGPlugin);
 
+const startState = { autoAlpha: 0, y: -50 };
 
-const BumEdit = () => {
+const BumEdit = props => {
     const redHair1 = useRef(null)
     const redHair2 = useRef(null)
     const redHair3 = useRef(null)
@@ -97,6 +98,19 @@ const BumEdit = () => {
 
     
     return (
+        <Transition
+	unmountOnExit
+	in={props.show}
+	timeout={1000}
+	onEnter={node => gsap.set(node, startState)}
+	addEndListener={ (node, done) => {
+		gsap.to(node, 0.5, {
+			autoAlpha: props.show ? 1 : 0,
+			y: props.show ? 0 : 50,
+			onComplete: done
+		});
+	}}
+>
         <svg version="1.1" viewBox="0 0 200 250" xmlns="http://www.w3.org/2000/svg" ref={svg} className="BumEdit">
             <defs>
                 <filter id="filter1504" x="-.0046461" y="-.0024128" width="1.0093" height="1.0048" colorInterpolationFilters="sRGB">
@@ -170,6 +184,7 @@ const BumEdit = () => {
                 <path d="m26.375 207.37 6.6766-6.5971 2.3749 9.0806z"/>
             </g>
         </svg>
+    </Transition>
 
     )
 }
