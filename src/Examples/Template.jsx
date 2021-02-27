@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
-export default function MorphOnClick() {
+const Template = () => {
   const [menuOpen, setMenuOpen] = useState(true);
-  const animation = useRef(null);
+  const tl = useRef(null);
   const box = useRef(null);
 
   useEffect(() => {
-    animation.current = gsap.timeline().to(box.current, {
+    tl.current = gsap.timeline().to(box.current, {
       x: 300
     });
 
     return () => {
-      animation.current.kill();
+      tl.current.kill();
     };
   }, []);
 
   useEffect(() => {
     if (menuOpen) {
-      animation.current.reverse();
+      tl.current.reverse();
     } else {
-      animation.current.play();
+      tl.current.play();
     }
   }, [menuOpen]);
 
@@ -31,3 +31,5 @@ export default function MorphOnClick() {
     </div>
   );
 }
+
+export default Template

@@ -1,10 +1,11 @@
 // import "./App.scss";
 import BumEdit from "./RosaRay/BumEditWithHand";
-import MorphOnClick from "./Examples/MorphOnClick";
 import IxiLoaderAnimation from "./xion/IxiLoader";
 import CareflexBackground from "./xion/CareflexBackground";
 import XionLogo from "./xion/XionLogo";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import Template from "./Examples/Template";
+import Straddle from "./RosaRay/Straddle";
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
       <div className="gallery-buttons">
         <Link className="button" to="/">home</Link>
         <Link className="button" to="/ixi-loader">Ixi Loader</Link>
-        {/* <Link className="button" to="/xion-logo">Xion Logo</Link> */}
+        <Link className="button" to="/xion-logo">Xion Logo</Link>
       </div>
       <div className="gallery">
         {/* <div className="gallery-window">
@@ -20,7 +21,13 @@ function App() {
         </div> */}
             <div className="gallery-window">
               <Switch>
+              {/* <Route path="/" exact>
+                { ({ match }) => <Template show={match !== null} /> }
+              </Route> */}
               <Route path="/" exact>
+                { ({ match }) => <Straddle show={match !== null} /> }
+              </Route>
+              <Route path="/xion-logo">
                 { ({ match }) => <XionLogo show={match !== null} /> }
               </Route>
               <Route path="/ixi-loader" exact>
