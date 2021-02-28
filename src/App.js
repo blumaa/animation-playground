@@ -5,8 +5,11 @@ import IxiLoaderAnimation from './xion/IxiLoader'
 import CareflexBackground from './xion/CareflexBackground'
 import XionLogo from './xion/XionLogo'
 import { BrowserRouter, Route, Link, Switch, NavLink } from 'react-router-dom'
-import Template from './Examples/Template'
+import Template from './assets/Template'
 import Straddle from './RosaRay/Straddle'
+import BackButton from './assets/BackButton'
+import NextButton from './assets/NextButton'
+import MenuButton from './assets/MenuButton'
 
 const App = () => {
     const [selectedAnimation, setSelectedAnimation] = React.useState(null)
@@ -41,72 +44,63 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            {/* <div className="gallery-buttons">
-                <NavLink
-                    activeClassName="active"
-                    className="button"
-                    to={`/${back}`}
-                    exact
-                >
-                    back
-                </NavLink>
-                <NavLink
-                    activeClassName="active"
-                    className="button"
-                    to={`/${next}`}
-                >
-                    next
-                </NavLink>
-            </div> */}
             <div className="gallery-buttons">
+                {/* <Link to={`/${back}`} exact> */}
+                <BackButton />
+                {/* </Link> */}
+                {/* <Link to={`/${next}`}> */}
+                <NextButton />
+                {/* </Link> */}
+            </div>
+            <div className="gallery-buttons">
+                <NavLink to="/" exact>
+                    <MenuButton name={'home'} />
+                </NavLink>
                 <NavLink
                     activeClassName="active"
                     className="button"
-                    to="/"
+                    to="/straddle"
                     exact
                 >
-                    straddle
+                    <MenuButton name={'straddle'} />
                 </NavLink>
                 <NavLink
                     activeClassName="active"
                     className="button"
                     to="/xion-logo"
                 >
-                    Xion Logo
+                    <MenuButton name={'xionlogo'} />
                 </NavLink>
                 <NavLink
                     activeClassName="active"
                     className="button"
                     to="/ixi-loader"
                 >
-                    Ixi Loader
+                    <MenuButton name={'ixi-loader'} />
                 </NavLink>
                 <NavLink
                     activeClassName="active"
                     className="button"
                     to="/bum-edit"
                 >
-                    Bum Edit
+                    <MenuButton name={'bum-edit'} />
                 </NavLink>
                 <NavLink
                     activeClassName="active"
                     className="button"
                     to="/careflex-background"
                 >
-                    Careflex Background
+                    <MenuButton name={'c-background'} />
                 </NavLink>
             </div>
             <div className="gallery">
-                {/* <div className="gallery-window">
-          <MorphOnClick />
-        </div> */}
                 <div className="gallery-window">
                     <Switch>
-                        {/* <Route path="/" exact>
-                          { ({ match }) => <Template show={match !== null} /> }
-                        </Route> */}
-                        {/* {animations.map((a) => makeRoute(a))} */}
                         <Route path="/" exact>
+                            {({ match }) => <Template show={match !== null} />}
+                        </Route>
+                        {/* {animations.map((a) => makeRoute(a))} */}
+                        <Route path="/straddle" exact>
                             {({ match }) => <Straddle show={match !== null} />}
                         </Route>
                         <Route path="/xion-logo">
