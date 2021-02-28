@@ -41,7 +41,7 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <div className="gallery-buttons">
+            {/* <div className="gallery-buttons">
                 <NavLink
                     activeClassName="active"
                     className="button"
@@ -57,7 +57,7 @@ const App = () => {
                 >
                     next
                 </NavLink>
-            </div>
+            </div> */}
             <div className="gallery-buttons">
                 <NavLink
                     activeClassName="active"

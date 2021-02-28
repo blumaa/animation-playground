@@ -62,7 +62,7 @@ const Straddle = () => {
             })
 
         const fireLineWave = () => {
-            let tl = gsap
+            return gsap
                 .timeline({ repeat: -1 })
                 .add(gsap.from('.fire-lines', 1.2, { opacity: 0 }))
                 .add(
