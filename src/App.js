@@ -44,54 +44,37 @@ const App = () => {
 
     return (
         <BrowserRouter>
-            <div className="gallery-buttons">
-                {/* <Link to={`/${back}`} exact> */}
-                <BackButton />
-                {/* </Link> */}
-                {/* <Link to={`/${next}`}> */}
-                <NextButton />
-                {/* </Link> */}
+            <div className="gallery">
+                <div className="gallery-buttons">
+                    {/* <Link to={`/${back}`} exact> */}
+                    <BackButton />
+                    {/* </Link> */}
+                    {/* <Link to={`/${next}`}> */}
+                    <NextButton />
+                    {/* </Link> */}
+                </div>
             </div>
-            <div className="gallery-buttons">
-                <NavLink to="/" exact>
-                    <MenuButton name={'home'} />
-                </NavLink>
-                <NavLink
-                    activeClassName="active"
-                    className="button"
-                    to="/straddle"
-                    exact
-                >
-                    <MenuButton name={'straddle'} />
-                </NavLink>
-                <NavLink
-                    activeClassName="active"
-                    className="button"
-                    to="/xion-logo"
-                >
-                    <MenuButton name={'xionlogo'} />
-                </NavLink>
-                <NavLink
-                    activeClassName="active"
-                    className="button"
-                    to="/ixi-loader"
-                >
-                    <MenuButton name={'ixi-loader'} />
-                </NavLink>
-                <NavLink
-                    activeClassName="active"
-                    className="button"
-                    to="/bum-edit"
-                >
-                    <MenuButton name={'bum-edit'} />
-                </NavLink>
-                <NavLink
-                    activeClassName="active"
-                    className="button"
-                    to="/careflex-background"
-                >
-                    <MenuButton name={'c-background'} />
-                </NavLink>
+            <div className="gallery">
+                <div className="gallery-buttons">
+                    <NavLink to="/" exact>
+                        <MenuButton name={'home'} />
+                    </NavLink>
+                    <NavLink to="/straddle">
+                        <MenuButton name={'straddle'} />
+                    </NavLink>
+                    <NavLink to="/xion-logo">
+                        <MenuButton name={'xionlogo'} />
+                    </NavLink>
+                    <NavLink to="/ixi-loader">
+                        <MenuButton name={'ixi-loader'} />
+                    </NavLink>
+                    <NavLink to="/bum-edit">
+                        <MenuButton name={'bum-edit'} />
+                    </NavLink>
+                    <NavLink to="/careflex-background">
+                        <MenuButton name={'c-background'} />
+                    </NavLink>
+                </div>
             </div>
             <div className="gallery">
                 <div className="gallery-window">
