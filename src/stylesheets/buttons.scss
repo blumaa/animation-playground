@@ -1,0 +1,20 @@
+.button-1 {
+    fill: #e6e6e6;
+}
+
+.button-2 {
+    fill: #e36869;
+}
+
+.button {
+    width: 10rem;
+    &__back {
+        width: 10rem;
+    }
+    &__next {
+        width: 10rem;
+    }
+    &__menu {
+        width: 4rem;
+    }
+}

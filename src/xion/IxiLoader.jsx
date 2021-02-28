@@ -1,8 +1,9 @@
 import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
+import { Transition } from "react-transition-group";
+const startState = { autoAlpha: 0, y: -50 };
 
-
-const IxiLoaderAnimation = () => {
+const IxiLoaderAnimation = props => {
   const horn1 = useRef(null)
   const horn2 = useRef(null)
   const horn3 = useRef(null)
@@ -32,52 +33,65 @@ const IxiLoaderAnimation = () => {
       yoyo: true
     })
 
-    gsap.fromTo(
-      [leftEye.current, rightEye.current],
-      { rotationX: 90 },
-      {
-        rotationZ: -90,
-        rotationX: 45,
-        y: 8,
-        transformOrigin: 'center',
-        ease: 'bounce3.in',
-        duration: 1,
-        repeat: -1,
-        yoyo: true
-      },
-      0
-    )
+  //   gsap.fromTo(
+  //     [leftEye.current, rightEye.current],
+  //     { rotationX: 90 },
+  //     {
+  //       rotationZ: -90,
+  //       rotationX: 45,
+  //       y: 8,
+  //       transformOrigin: 'center',
+  //       ease: 'bounce3.in',
+  //       duration: 1,
+  //       repeat: -1,
+  //       yoyo: true
+  //     },
+  //     0
+  //   )
 
-    gsap.to(
-      [circle1.current, circle2.current, circle3.current],
-      1,
-      {
-        scale: 0.8,
-        transformOrigin: 'bottom',
-        repeat: -1,
-        opacity: 0.2,
-        yoyo: true,
-        stagger: {
-          each: 0.5,
-          ease: 'power3.inOut'
-        }
-      },
-      0.7
-    )
+  //   gsap.to(
+  //     [circle1.current, circle2.current, circle3.current],
+  //     1,
+  //     {
+  //       scale: 0.8,
+  //       transformOrigin: 'bottom',
+  //       repeat: -1,
+  //       opacity: 0.2,
+  //       yoyo: true,
+  //       stagger: {
+  //         each: 0.5,
+  //         ease: 'power3.inOut'
+  //       }
+  //     },
+  //     0.7
+  //   )
 
-    gsap.to([hair1.current, hair2.current], 2, {
-      rotation: '20deg',
-      transformOrigin: transformOriginValue,
-      repeat: -1,
-      yoyo: true,
-      ease: 'power3.inOut( 3, 0.1)',
-      stagger: {
-        each: 0.7
-      }
-    })
+  //   gsap.to([hair1.current, hair2.current], 2, {
+  //     rotation: '20deg',
+  //     transformOrigin: transformOriginValue,
+  //     repeat: -1,
+  //     yoyo: true,
+  //     ease: 'power3.inOut( 3, 0.1)',
+  //     stagger: {
+  //       each: 0.7
+  //     }
+  //   })
   }, [])
 
   return (
+    <Transition
+    timeout={1000}
+    mountOnEnter
+    unmountOnExit
+    in={props.show}
+    addEndListener={(node, done) => {
+      gsap.to(node, 0.5, {
+        x: props.show ? 0 : 100,
+        autoAlpha: props.show ? 1 : 0,
+        onComplete: done
+      });
+    }}
+  >
       <svg
         id="Layer_1"
         data-name="Layer 1"
@@ -340,6 +354,7 @@ const IxiLoaderAnimation = () => {
             d="M326.7,482.65s77.81,1.3,77.83-7.32c2,1.64,3.56,4.62,3.56,18.34s-63.85,28.74-80.57,10.77c-1-19.34-.79-20.57-.79-20.57"
             transform="translate(-5.99 -3.83)"
           />
+         
           <path
             ref={leftEye}
             className="cls-13"
@@ -490,6 +505,7 @@ const IxiLoaderAnimation = () => {
           </g>
         </g>
       </svg>
+      </Transition>
   )
 }
 
