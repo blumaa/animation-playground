@@ -54,7 +54,7 @@ const BumEdit = (props) => {
     const [timeLinePause, setTimeLinePause] = useState(false)
     const animation = useRef(null)
 
-    const [timeLine2Pause, setTimeLine2Pause] = useState(false)
+    const [timeLine2Pause, setTimeLine2Pause] = useState(true)
     const timeLine2 = useRef(null)
 
     useEffect(() => {
@@ -151,35 +151,29 @@ const BumEdit = (props) => {
     }, [])
 
     useEffect(() => {
-        gsap.set('#hand', { transformOrigin: 'right center' })
-        const spank = () => gsap.to('#hand', 2, { rotation: 360 })
-        timeLine2.current = gsap.timeline({ paused: false }).add(spank())
+        gsap.set('#hand', { transformOrigin: 'center center' })
+        const spank = () => gsap.to('#hand', 1, { rotation: 440 })
+        timeLine2.current = gsap.timeline().add(spank())
     }, [])
 
     useEffect(() => {
         if (timeLinePause) {
             animation.current.reverse()
-            timeLine2.current.reverse()
         } else {
             animation.current.play()
-            timeLine2.current.play()
         }
     }, [timeLinePause])
 
+    useEffect(() => {
+        if (timeLine2Pause) {
+            timeLine2.current.reverse()
+        } else {
+            timeLine2.current.play()
+        }
+    }, [timeLine2Pause])
+
     return (
-        <Transition
-            unmountOnExit
-            in={props.show}
-            timeout={1000}
-            onEnter={(node) => gsap.set(node, startState)}
-            addEndListener={(node, done) => {
-                gsap.to(node, 0.5, {
-                    autoAlpha: props.show ? 1 : 0,
-                    y: props.show ? 0 : 50,
-                    onComplete: done,
-                })
-            }}
-        >
+        <div className="gallery-window">
             <svg
                 version="1.1"
                 viewBox="0 0 200 250"
@@ -462,7 +456,7 @@ const BumEdit = (props) => {
                     transform="matrix(0 .48207 -.44421 0 133.09 228.8)"
                     fill="#1b1b1a"
                     strokeWidth=".83039"
-                    onClick={() => setTimeLinePause(!timeLinePause)}
+                    onClick={() => setTimeLine2Pause(!timeLine2Pause)}
                 >
                     <path
                         d="m29.601 195.3c-4.0869-0.80663-8.1739-1.6025-12.1-2.0004-3.9256-0.39794-7.6253-0.80663-11.443-0.39794-3.8181 0.39794-7.1952 2.4629-11.443 2.7963-4.2591 0.3334-11.347-1.3336-14.068-0.80664-2.7317 0.53776-3.5492 2.8609-2.2908 3.9901 1.2582 1.1293 5.7754 2.2048 9.8086 2.8071 4.0332 0.60229 9.744 0.26888 14.39 0.79588 4.657 0.53777 11.25 2.0005 13.498 2.3984z"
@@ -565,7 +559,7 @@ const BumEdit = (props) => {
                     <path d="m26.375 207.37 6.6766-6.5971 2.3749 9.0806z" />
                 </g>
             </svg>
-        </Transition>
+        </div>
     )
 }
 

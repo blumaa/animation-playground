@@ -12,31 +12,46 @@ body {
 }
 
 .gallery {
-    width: 100%;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    // border: 1px solid teal;
-}
-
-.gallery-window {
-    height: 30rem;
-    width: 70rem;
+    // width: 100%;
     display: flex;
     align-items: center;
     flex-direction: column;
+    // border: 1px solid yellow;
+}
+
+.gallery-window {
+    height: 100%;
+    // width: 70rem;
+    // display: flex;
+    // justify-content: space-evenly;
+    // align-items: center;
+    // flex-direction: column;
     border: 1px solid teal;
-    margin: 2rem;
-    box-shadow: 5px 5px 5px 0px rgba(134, 134, 134, 0.75);
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    box-shadow: 5px 5px 5px 0px #868686bf;
     overflow: hidden;
+    svg {
+        height: 40rem;
+    }
 }
 
 .gallery-buttons {
-    width: 50rem;
-    align-self: center;
+    width: 100%;
+    // border: 1px solid #ffa500;
     padding: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.gallery-label {
+    font-family: 'Bangers', cursive;
+    display: flex;
+    justify-content: center;
+    color: rgb(116, 116, 116);
+}
+
+.straddle {
+    display: flex;
+    flex-direction: column;
 }
