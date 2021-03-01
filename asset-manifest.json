@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/animation-playground/static/css/main.1e6d894b.chunk.css",
-    "main.js": "/animation-playground/static/js/main.98079bd2.chunk.js",
-    "main.js.map": "/animation-playground/static/js/main.98079bd2.chunk.js.map",
-    "runtime-main.js": "/animation-playground/static/js/runtime-main.d548359b.js",
-    "runtime-main.js.map": "/animation-playground/static/js/runtime-main.d548359b.js.map",
-    "static/js/2.434850aa.chunk.js": "/animation-playground/static/js/2.434850aa.chunk.js",
-    "static/js/2.434850aa.chunk.js.map": "/animation-playground/static/js/2.434850aa.chunk.js.map",
-    "static/js/3.7b749114.chunk.js": "/animation-playground/static/js/3.7b749114.chunk.js",
-    "static/js/3.7b749114.chunk.js.map": "/animation-playground/static/js/3.7b749114.chunk.js.map",
+    "main.css": "/animation-playground/static/css/main.cd38f91c.chunk.css",
+    "main.js": "/animation-playground/static/js/main.5c9e4f3c.chunk.js",
+    "main.js.map": "/animation-playground/static/js/main.5c9e4f3c.chunk.js.map",
+    "runtime-main.js": "/animation-playground/static/js/runtime-main.495504fb.js",
+    "runtime-main.js.map": "/animation-playground/static/js/runtime-main.495504fb.js.map",
+    "static/js/2.6d0d74ac.chunk.js": "/animation-playground/static/js/2.6d0d74ac.chunk.js",
+    "static/js/2.6d0d74ac.chunk.js.map": "/animation-playground/static/js/2.6d0d74ac.chunk.js.map",
+    "static/js/3.b740e821.chunk.js": "/animation-playground/static/js/3.b740e821.chunk.js",
+    "static/js/3.b740e821.chunk.js.map": "/animation-playground/static/js/3.b740e821.chunk.js.map",
     "index.html": "/animation-playground/index.html",
-    "static/css/main.1e6d894b.chunk.css.map": "/animation-playground/static/css/main.1e6d894b.chunk.css.map",
-    "static/js/2.434850aa.chunk.js.LICENSE.txt": "/animation-playground/static/js/2.434850aa.chunk.js.LICENSE.txt"
+    "static/css/main.cd38f91c.chunk.css.map": "/animation-playground/static/css/main.cd38f91c.chunk.css.map",
+    "static/js/2.6d0d74ac.chunk.js.LICENSE.txt": "/animation-playground/static/js/2.6d0d74ac.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.d548359b.js",
-    "static/js/2.434850aa.chunk.js",
-    "static/css/main.1e6d894b.chunk.css",
-    "static/js/main.98079bd2.chunk.js"
+    "static/js/runtime-main.495504fb.js",
+    "static/js/2.6d0d74ac.chunk.js",
+    "static/css/main.cd38f91c.chunk.css",
+    "static/js/main.5c9e4f3c.chunk.js"
   ]
 }
