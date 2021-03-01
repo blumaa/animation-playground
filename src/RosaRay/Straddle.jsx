@@ -105,9 +105,8 @@ const Straddle = () => {
     }, [Pause])
 
     return (
-        <>
+        <div className="straddle">
             <button onClick={() => setPause(!Pause)}>Pause/Play</button>
-            {/* <div className="box" ref={box} /> */}
             <svg
                 id="Layer_1"
                 data-name="Layer 1"
@@ -556,7 +555,7 @@ const Straddle = () => {
                     />
                 </g>
             </svg>
-        </>
+        </div>
     )
 }
 

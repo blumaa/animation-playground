@@ -1,7 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
+import { Transition } from "react-transition-group";
+const startState = { autoAlpha: 0, y: -50 };
 
-const XionLogo = props => {
+const XionLogo3 = props => {
   const one = useRef(null) 
   const two = useRef(null) 
   const three = useRef(null) 
@@ -28,6 +30,19 @@ const XionLogo = props => {
       timeLinePause ? tl.current.reverse() : tl.current.play()
   }, [timeLinePause])
   return(
+    // <Transition
+    //   unmountOnExit
+    //   in={props.show}
+    //   timeout={1000}
+    //   onEnter={node => gsap.set(node, startState)}
+    //   addEndListener={ (node, done) => {
+    //     gsap.to(node, 0.5, {
+    //       autoAlpha: props.show ? 1 : 0,
+    //       y: props.show ? 0 : 50,
+    //       onComplete: done
+    //     });
+    //   }}
+    // >
     <>
       <svg version="1.1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="xion-logo" onClick={() => setTimeLinePause(!timeLinePause)}>
         <g>
@@ -44,8 +59,9 @@ const XionLogo = props => {
         </g>
       </svg>
       <div>click the logo</div>
+    {/* </Transition> */}
     </>
   )
 }
 
-export default XionLogo
+export default XionLogo3

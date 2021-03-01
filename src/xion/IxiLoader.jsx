@@ -1,7 +1,5 @@
 import React, { useRef, useEffect } from 'react'
 import { gsap } from 'gsap'
-import { Transition } from "react-transition-group";
-const startState = { autoAlpha: 0, y: -50 };
 
 const IxiLoaderAnimation = props => {
   const horn1 = useRef(null)
@@ -33,21 +31,21 @@ const IxiLoaderAnimation = props => {
       yoyo: true
     })
 
-  //   gsap.fromTo(
-  //     [leftEye.current, rightEye.current],
-  //     { rotationX: 90 },
-  //     {
-  //       rotationZ: -90,
-  //       rotationX: 45,
-  //       y: 8,
-  //       transformOrigin: 'center',
-  //       ease: 'bounce3.in',
-  //       duration: 1,
-  //       repeat: -1,
-  //       yoyo: true
-  //     },
-  //     0
-  //   )
+    gsap.fromTo(
+      [leftEye.current, rightEye.current],
+      { rotationX: 90 },
+      {
+        rotationZ: -90,
+        rotationX: 45,
+        y: 8,
+        transformOrigin: 'center',
+        ease: 'bounce3.in',
+        duration: 1,
+        repeat: -1,
+        yoyo: true
+      },
+      0
+    )
 
   //   gsap.to(
   //     [circle1.current, circle2.current, circle3.current],
@@ -79,19 +77,6 @@ const IxiLoaderAnimation = props => {
   }, [])
 
   return (
-    <Transition
-    timeout={1000}
-    mountOnEnter
-    unmountOnExit
-    in={props.show}
-    addEndListener={(node, done) => {
-      gsap.to(node, 0.5, {
-        x: props.show ? 0 : 100,
-        autoAlpha: props.show ? 1 : 0,
-        onComplete: done
-      });
-    }}
-  >
       <svg
         id="Layer_1"
         data-name="Layer 1"
@@ -505,7 +490,6 @@ const IxiLoaderAnimation = props => {
           </g>
         </g>
       </svg>
-      </Transition>
   )
 }
 

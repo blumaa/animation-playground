@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 
-const XionLogo = props => {
+const XionLogo2 = props => {
   const one = useRef(null) 
   const two = useRef(null) 
   const three = useRef(null) 
@@ -20,7 +20,6 @@ const XionLogo = props => {
 
       const spinObjects = () => gsap.to(objects, 1, {stagger: .2, rotation: 360, ease: "power3.out"})
       const flashObjects = () => gsap.to(objects, .1, {stagger: .4, opacity: 0, yoyo: true, repeat: 1})
-      const flashObjects2 = () => gsap.to(objects, .1, {stager: .4, opacity: 1})
       tl.current = gsap.timeline({paused: true}).add(spinObjects()).add(flashObjects())
   }, [])
 
@@ -48,4 +47,4 @@ const XionLogo = props => {
   )
 }
 
-export default XionLogo
+export default XionLogo2
