@@ -7,7 +7,7 @@ const MenuButton = (props) => {
     const [click, setClick] = useState(true)
     const tl = useRef(null)
     const box = useRef(null)
-    console.log(props.name)
+    // console.log(props.name)
 
     useEffect(() => {
         tl.current = gsap.timeline({ reversed: true }).fromTo(

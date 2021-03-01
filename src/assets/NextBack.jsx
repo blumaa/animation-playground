@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import MenuButton from './assets/MenuButton'
 
-const Menu = (props) => {
+const NextBack = (props) => {
     return (
         <>
             <Link
@@ -44,4 +44,4 @@ const Menu = (props) => {
     )
 }
 
-export default Menu
+export default NextBack

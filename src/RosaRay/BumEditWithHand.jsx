@@ -173,6 +173,7 @@ const BumEdit = (props) => {
     }, [timeLine2Pause])
 
     return (
+        <div className="gallery-window">
             <svg
                 version="1.1"
                 viewBox="0 0 200 250"
@@ -558,6 +559,7 @@ const BumEdit = (props) => {
                     <path d="m26.375 207.37 6.6766-6.5971 2.3749 9.0806z" />
                 </g>
             </svg>
+        </div>
     )
 }
 
