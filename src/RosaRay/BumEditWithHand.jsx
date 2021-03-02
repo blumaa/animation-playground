@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
-import { Transition } from 'react-transition-group'
 gsap.registerPlugin(Draggable)
 gsap.registerPlugin(DrawSVGPlugin)
 

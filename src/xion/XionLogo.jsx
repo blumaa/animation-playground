@@ -34,8 +34,6 @@ const XionLogo = (props) => {
                 yoyo: true,
                 repeat: 1,
             })
-        const flashObjects2 = () =>
-            gsap.to(objects, 0.1, { stager: 0.4, opacity: 1 })
         tl.current = gsap
             .timeline({ paused: true })
             .add(spinObjects())

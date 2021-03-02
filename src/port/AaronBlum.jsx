@@ -260,8 +260,6 @@ const AaronBlumTitle = () => {
   };
 
   useEffect(() => {
-    console.log("start", path1.current);
-    console.log("start", pathsolid1.current);
 
     // Draggable.create("#topmoon");
 
@@ -1709,8 +1707,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
         <path
           ref={path2}
@@ -1718,8 +1716,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
         <path
           ref={path3}
@@ -1727,8 +1725,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
         <path
           ref={path4}
@@ -1736,8 +1734,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
         <path
           ref={path5}
@@ -1745,8 +1743,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
         <path
           ref={path6}
@@ -1754,8 +1752,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
         <path
           ref={path7}
@@ -1763,8 +1761,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
         <path
           ref={path8}
@@ -1772,8 +1770,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
         <path
           ref={path9}
@@ -1781,8 +1779,8 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke="#3a4a6fff"
-          stroke-miterlimit="10"
-          stroke-width="3"
+          strokeMiterlimit="10"
+          strokeWidth="3"
         ></path>
       </g>
       <g id="aaronBlumSolid">
@@ -2353,7 +2351,7 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill={"#ec6543ff"}
           stroke={"#ec6543ff"}
-          stroke-miterlimit="10"
+          strokeMiterlimit="10"
         />
         <path
           ref={solidunderline1}
@@ -2361,7 +2359,7 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill={"#ec6543ff"}
           stroke={"#ec6543ff"}
-          stroke-miterlimit="10"
+          strokeMiterlimit="10"
         />
       </g>
 
@@ -2372,7 +2370,7 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke={"#ec6543ff"}
-          stroke-miterlimit="10"
+          strokeMiterlimit="10"
         />
         <path
           ref={underline1}
@@ -2380,7 +2378,7 @@ const AaronBlumTitle = () => {
           transform="translate(-98.55 75.74)"
           fill="none"
           stroke={"#ec6543ff"}
-          stroke-miterlimit="10"
+          strokeMiterlimit="10"
         />
       </g>
     </svg>

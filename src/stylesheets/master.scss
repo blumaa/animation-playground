@@ -2,73 +2,95 @@
 @import 'ixi-loader.scss';
 @import 'bum-edit.scss';
 @import 'xion-logo.scss';
-@import 'buttons.scss';
 @import 'aaron-blum-title.scss';
-
-body {
+// @import 'ufo-scene.scss';s
+*,
+*::before,
+*::after {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html,
+  body {
+    // font-size: 1.6vw;
     font-family: 'Roboto';
+    font-style: normal;
     
-    
-    /* background-color: aqua; */
-  }
-  
-  .gallery {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    flex-direction: row;
-    // border: 1px solid yellow;
-  }
-  
-  .gallery-window {
     height: 100%;
-    // width: 70rem;
-    // display: flex;
-    // justify-content: space-evenly;
-    // align-items: center;
-    // flex-direction: column;
-    border: 1px solid teal;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    box-shadow: 5px 5px 5px 0px #868686bf;
-    overflow: hidden;
     svg {
-      height: 40rem;
+        cursor: pointer;
     }
-  }
-  
-  .gallery-buttons {
-    width: 100%;
-    // border: 1px solid #ffa500;
-    padding: 1rem;
+}
+
+#root{
+  // border: 13px solid blueviolet;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: 18% 60% 18%;
+    grid-gap: 2%;
+    // border: 1px solid green;
+    height: 100%;
+
+    &__button {
+        // border: 1px solid green;
+        overflow: hidden;
+        &--back {
+            width: 100%;
+        }
+        &--next {
+            width: 100%;
+        }
+    }
+}
+
+.gallery-window {
     display: flex;
-    justify-content: space-evenly;
-  }
-  
-  .gallery-label {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 1px solid teal;
+    // margin-top: 1rem;
+    // margin-bottom: 1rem;
+    box-shadow: 5px 5px 5px 0px #868686bf;
+    // overflow: hidden;
+    // svg {
+    //   height: 40rem;
+    // }
+}
+
+.gallery-label {
+    padding-top: 2rem;
     font-family: 'Bangers', cursive;
     display: flex;
     justify-content: center;
     color: rgb(116, 116, 116);
-  }
-  
-  .straddle {
+}
+
+.straddle {
     display: flex;
     flex-direction: column;
-  }
-  
-  .copyright{
+}
+
+.copyright {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    font-size: .6rem;
+    font-size: 0.6rem;
     color: rgb(116, 116, 116);
-    &__item{
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
+    // border: 1px solid teal;
+    &__item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
+    padding-bottom: 1rem;
+    padding-top:1rem;
 }
-

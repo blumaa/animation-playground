@@ -106,13 +106,14 @@ const Straddle = () => {
 
     return (
         <div className="gallery-window">
-            <div className="straddle">
-                <button onClick={() => setPause(!Pause)}>Pause/Play</button>
+            <div className="straddle" onClick={() => setPause(!Pause)}>
+                
                 <svg
                     id="Layer_1"
                     data-name="Layer 1"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 1081.48 1419.05"
+                    
                 >
                     <title>straddle</title>
                     <g className="bodyLines">
@@ -557,6 +558,7 @@ const Straddle = () => {
                     </g>
                 </svg>
             </div>
+            <div className="gallery-label">click to pause or play</div>
         </div>
     )
 }
