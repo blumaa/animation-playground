@@ -9,11 +9,17 @@ import IxiLoader from './xion/IxiLoader'
 import CareflexBackground from './xion/CareflexBackground'
 import Straddle from './RosaRay/Straddle'
 import BumEdit from './RosaRay/BumEditWithHand'
+import AaronBlumTitle from './port/AaronBlum'
 
 const App = () => {
     const [selected, setSelected] = React.useState(0)
 
     const animations = [
+        {
+            name: 'aaron blum',
+            path: 'aaron-blum',
+            component: AaronBlumTitle,
+        },
         { name: 'xion logo', component: XionLogo },
         { name: 'straddle', component: Straddle },
         { name: 'ixi loader', component: IxiLoader },
@@ -32,29 +38,35 @@ const App = () => {
     return (
         <BrowserRouter>
             <div className="gallery">
-                <div className="gallery-buttons">
-                    <BackButton
-                        setSelected={setSelected}
-                        selected={selected}
-                        animations={animations}
-                    />
-                    <NextButton
-                        setSelected={setSelected}
-                        selected={selected}
-                        animations={animations}
-                    />
-                </div>
+                <BackButton
+                    setSelected={setSelected}
+                    selected={selected}
+                    animations={animations}
+                />
                 <Route
                     path="/"
                     render={(props) => (
                         <AppRoutes {...props} animations={animations} />
                     )}
                 />
+                <NextButton
+                    setSelected={setSelected}
+                    selected={selected}
+                    animations={animations}
+                />
 
                 {/* <Route path="/" component={AppRoutes} /> */}
                 {/* <div className="gallery-buttons">
                     <Menu />
                 </div> */}
+            </div>
+            <div className="copyright">
+              <div className="copyright__item">
+                All images and animations © 2020 Aaron Blum
+              </div>
+              <div className="copyright__item">
+                <a href="http://aaronblum.co">aaronblum.co</a>
+              </div>
             </div>
         </BrowserRouter>
     )

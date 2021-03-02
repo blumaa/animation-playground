@@ -2,13 +2,9 @@ import React from 'react'
 import { TransitionGroup, Transition } from 'react-transition-group'
 import { Route, Switch } from 'react-router-dom'
 import { gsap } from 'gsap'
-import XionLogo from './xion/XionLogo'
-import IxiLoader from './xion/IxiLoader'
-import CareflexBackground from './xion/CareflexBackground'
-import Straddle from './RosaRay/Straddle'
-import BumEdit from './RosaRay/BumEditWithHand'
+import AaronBlumTitle from './port/AaronBlum'
 
-const startState = { autoAlpha: 0, x: -50 }
+const startState = { autoAlpha: 0, y: -50 }
 
 const AppRoutes = (props) => {
     const routeList = props.animations.map((a, i) => {
@@ -26,7 +22,7 @@ const AppRoutes = (props) => {
                 addEndListener={(node, done) => {
                     gsap.to(node, 1, {
                         autoAlpha: 1,
-                        x: 0,
+                        y: 0,
                         onComplete: done,
                     })
                 }}
@@ -36,11 +32,13 @@ const AppRoutes = (props) => {
                 //         onComplete: done,
                 //     })
                 // }}
-                // onExit={(node) => {
-                //     gsap.to(node, 0.5, {
-                //         autoAlpha: 0,
-                //     })
-                // }}
+                onExit={(node) => {
+                    gsap.killTweensOf(node);
+                    gsap.to(node, 3, {
+                        autoAlpha: 0,
+                        y: 200
+                    })
+                }}
                 // onEnter={(node) => {
                 //   gsap.killTweensOf(node);
                 //   gsap.from(node, 3, {
@@ -57,11 +55,11 @@ const AppRoutes = (props) => {
                 // }}
             >
                 <Switch location={props.location}>
-                    <Route exact path={`/`} component={XionLogo} />
+                    <Route exact path={`/`} component={AaronBlumTitle} />
                     <Route
                         exact
                         path={`/animation-playground`}
-                        component={XionLogo}
+                        component={AaronBlumTitle}
                     />
                     {routeList}
                 </Switch>

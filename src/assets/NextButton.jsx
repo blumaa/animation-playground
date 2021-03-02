@@ -29,7 +29,7 @@ const NextButton = (props) => {
     }, [])
 
     useEffect(() => {
-        gsap.to('.back-button', 0.2, {
+        gsap.to('.button__next', 0.2, {
             scale: 1.3,
             repeat: 1,
             yoyo: true,
