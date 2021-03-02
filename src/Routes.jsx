@@ -12,8 +12,6 @@ const startState = { autoAlpha: 0, x: -50 }
 
 const AppRoutes = (props) => {
     const routeList = props.animations.map((a, i) => {
-        console.log('route path index', i)
-        console.log(`/animation-${i}`)
         return <Route exact path={`/animation-${i}`} component={a.component} />
     })
     console.log(routeList)
@@ -58,7 +56,15 @@ const AppRoutes = (props) => {
                 //   });
                 // }}
             >
-                <Switch location={props.location}>{routeList}</Switch>
+                <Switch location={props.location}>
+                    <Route exact path={`/`} component={XionLogo} />
+                    <Route
+                        exact
+                        path={`/animation-playground`}
+                        component={XionLogo}
+                    />
+                    {routeList}
+                </Switch>
             </Transition>
         </TransitionGroup>
     )
