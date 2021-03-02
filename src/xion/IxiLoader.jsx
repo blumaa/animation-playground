@@ -77,7 +77,6 @@ const IxiLoaderAnimation = (props) => {
     }, [])
 
     return (
-        <div className="gallery-window">
             <svg
                 id="Layer_1"
                 data-name="Layer 1"
@@ -547,7 +546,6 @@ const IxiLoaderAnimation = (props) => {
                     </g>
                 </g>
             </svg>
-        </div>
     )
 }
 

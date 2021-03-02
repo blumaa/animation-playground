@@ -123,7 +123,7 @@ const CareflexBackground = () => {
     }
 
     return (
-        <div className="gallery-window">
+        <>
             <svg
                 id="careflex-background"
                 data-name="Layer 1"
@@ -729,7 +729,7 @@ const CareflexBackground = () => {
                 </g>
             </svg>
             <div className="gallery-label">hover over beaker</div>
-        </div>
+        </>
     )
 }
 

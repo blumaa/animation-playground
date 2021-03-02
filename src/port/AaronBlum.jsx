@@ -393,7 +393,6 @@ const AaronBlumTitle = () => {
   }, []);
   
   return (
-    <div className="gallery-window">
 
     <svg
       id="baselayer"
@@ -2382,7 +2381,6 @@ const AaronBlumTitle = () => {
         />
       </g>
     </svg>
-    </div>
   );
 };
 export default AaronBlumTitle;

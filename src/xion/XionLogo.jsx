@@ -44,7 +44,7 @@ const XionLogo = (props) => {
         timeLinePause ? tl.current.reverse() : tl.current.play()
     }, [timeLinePause])
     return (
-        <div className="gallery-window">
+        <>
             <svg
                 version="1.1"
                 viewBox="0 0 100 100"
@@ -93,7 +93,7 @@ const XionLogo = (props) => {
                 </g>
             </svg>
             <div className="gallery-label">click the logo</div>
-        </div>
+        </>
     )
 }
 
