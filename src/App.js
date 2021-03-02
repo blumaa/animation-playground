@@ -10,6 +10,7 @@ import Straddle from './RosaRay/Straddle'
 import BumEdit from './RosaRay/BumEditWithHand'
 import AaronBlumTitle from './port/AaronBlum'
 import Fade from './assets/Transition'
+import UfoMoon from './port/UfoScene'
 
 const App = () => {
     const [selected, setSelected] = React.useState(0)
@@ -21,6 +22,7 @@ const App = () => {
             path: 'aaron-blum',
             component: AaronBlumTitle,
         },
+        { id: Math.random(), name: 'ufo moon', component: UfoMoon },
         { id: Math.random(), name: 'xion logo', component: XionLogo },
         { id: Math.random(), name: 'straddle', component: Straddle },
         // { id: Math.random(), name: 'fade', component: Fade },

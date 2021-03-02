@@ -1,201 +1,101 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
-import { gsap, Back, Linear, Elastic, Power3, Bounce } from "gsap";
-// import { useIntersection, useWindowSize } from "react-use";
-// import { useMappedState } from "redux-react-hook";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
 
-const UfoScene = () => {
+const UfoMoon = () => {
   let ufo = useRef(null);
   let moon = useRef(null);
   let topmoon = useRef(null);
-  let section = useRef(null);
-
-  // const mapState = useCallback((state) => {
-  //   return {
-  //     language: state.languageState,
-  //     theme: state.themeState,
-  //   };
-  // }, []);
-
-  // const { language, theme } = useMappedState(mapState);
-  // const { width, height } = useWindowSize();
-  // const sectionRef = useRef(null);
-
-  // console.log('window size', height);
-  // const [scrollPosition, setSrollPosition] = useState(0);
-  // const [scenePos, setScenePos] = useState(0);
-
-  // const handleScroll = () => {
-  //   const position = window.pageYOffset;
-  //   setSrollPosition(position);
-  // };
 
   useEffect(() => {
-    // let master = gsap.timeline({
-    //   reversed: false,
-    //   repeat: -1,
-    // });
-    // function random(min, max) {
-    //   if (max == null) {
-    //     max = min;
-    //     min = 0;
-    //   }
-    //   return function () {
-    //     return Math.random() * (max - min) + min;
-    //   };
-    // }
+    let master = gsap.timeline({
+      paused: true,
+      reversed: false,
+      repeat: -1,
+    });
+    function random(min, max) {
+      if (max == null) {
+        max = min;
+        min = 0;
+      }
+      return function () {
+        return Math.random() * (max - min) + min;
+      };
+    }
 
-    // const ufoFlight = () => {
-    //   let tl = gsap.timeline({
-    //     reversed: false,
-    //     repeat: -1,
-    //   });
-    //   for (var i = 0; i < 100; i++) {
-    //     tl.to(ufo.current, 1, {
-    //       x: random(-400, 900),
-    //       y: random(-150, 150),
-    //       ease: Back.easeIn,
-    //     });
-    //   }
-    // };
+    const ufoFlight = () => {
+      let tl = gsap.timeline({
+        reversed: false,
+        repeat: -1,
+      });
+      for (var i = 0; i < 100; i++) {
+        tl.to(ufo.current, 3, {
+          x: random(-400, 900),
+          y: random(-150, 150),
+          ease: "back.in",
+        });
+      }
+    };
 
-    // const moonRotate = () => {
-    //   let tl = gsap.timeline({
-    //     repeat: 0,
-    //     reversed: false,
-    //     onComplete: function () {
-    //       this.restart();
-    //     },
-    //   });
+    const moonRotate = () => {
+      let tl = gsap.timeline({
+        repeat: 0,
+        reversed: false,
+        onComplete: function () {
+          this.restart();
+        },
+      });
 
-    //   tl.to([topmoon.current, moon.current], 100, {
-    //     rotation: 360,
-    //     scale: 0.45,
-    //     repeat: -1,
-    //     yoyo: true,
-    //     transformOrigin: "50% 50%",
-    //     ease: Elastic.easeInOut,
-    //   });
+      tl.to([topmoon.current, moon.current], 10, {
+        rotation: 360,
+        scale: 0.45,
+        repeat: -1,
+        yoyo: true,
+        transformOrigin: "50% 50%",
+        ease: "elastic.inOut",
+      });
       //   tl.fromTo(moon, 30, {
       //     transformOrigin: 'center',
       //     roation: 0
       //   }, {rotation: 360, ease: Linear.easeNone})
-    // };
+    };
 
-    // master.add(ufoFlight(), "ufomove").add(moonRotate());
+    master.add(ufoFlight(), "ufomove").add(moonRotate());
 
 
-    // const scenePosition = sectionRef.current.getBoundingClientRect().top;
 
-    // // console.log(topPos)
-    // setScenePos(scenePosition)
 
-    // window.addEventListener("scroll", handleScroll, { passive: true });
 
-    // return () => {
-    //   window.removeEventListener("scroll", handleScroll);
-    // };
   }, []);
 
-  // console.log(scrollPosition);
 
-  // const intersection = useIntersection(section, {
-  //   root: null,
-  //   rootMargin: "0px",
-  //   threshhold: 0.5,
-  // });
 
-  // const moveDown = (element) => {
-  //   // gsap.to(ufo.current, 1, { opacity: 1, y: -130, ease: Power3.easeOut });
-  //   gsap.to(moon.current, 1, { opacity: 1, y: 85, ease: Power3.easeOut });
-  //   gsap.to(topmoon.current, 1, { opacity: 1, y: 85, ease: Power3.easeOut });
-  // };
+  const moveDown = (element) => {
+    // gsap.to(ufo.current, 1, { opacity: 1, y: -130, ease: "power3.out" });
+    gsap.to(moon.current, 1, { opacity: 1, y: 85, ease: "power3.out" });
+    gsap.to(topmoon.current, 1, { opacity: 1, y: 85, ease: "power3.out" });
+  };
 
-  // const moveUp = () => {
-  //   // gsap.to(ufo.current, 1, { opacity: 1, y: 130, ease: Power3.easeOut });
-  //   gsap.to(moon.current, 1, { opacity: 1, y: -130, ease: Power3.easeOut });
-  //   gsap.to(topmoon.current, 1, { opacity: 1, y: -130, ease: Power3.easeOut });
-  // };
+  const moveUp = () => {
+    // gsap.to(ufo.current, 1, { opacity: 1, y: 130, ease: "power3.out" });
+    gsap.to(moon.current, 1, { opacity: 1, y: -130, ease: "power3.out" });
+    gsap.to(topmoon.current, 1, { opacity: 1, y: -130, ease: "power3.out" });
+  };
 
-  // console.log('scroll pos', scrollPosition)
-  // console.log('scene pos', scenePos)
 
-  // if (width > 600) {
-  //   scrollPosition > scenePos + 800 ? moveDown(moon.current) : moveUp(moon.current);
-  // } else {
-  //   scrollPosition > scenePos - 100? moveDown(moon.current) : moveUp(moon.current);
-  // }
-  // intersection && intersection.intersectionRatio < 0.5 ? fadeOut() : fadeIn();
 
   return (
     <>
-      {/* <div id="space-scene" ref={sectionRef}> */}
+      <div className="ufo-moon">
         <svg
           id="Layer_1"
           data-name="Layer 1"
           xmlns="http://www.w3.org/2000/svg"
           xmlnsXlink="http://www.w3.org/1999/xlink"
-          viewBox="0 0 1125 2436"
-          className="ufo-scene"
+          viewBox="100 500 1125 1000"
         >
-          <defs>
-            {/* {theme.theme.backgroundColor === "#e3e3e3" ? ( */}
-              {/* <> */}
-                <linearGradient
-                  id="linear-gradient"
-                  x1="562.5"
-                  y1="1234.39"
-                  x2="562.5"
-                  y2="2416.98"
-                  gradientTransform="matrix(1, 0, 0, -1, 0, 3670.39)"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0" stop-color="#e3e3e3" />
-                  <stop offset="0.11" stop-color="#dedede" />
-                  <stop offset="0.25" stop-color="#d0d0d0" />
-                  <stop offset="0.39" stop-color="#b8b8b8" />
-                  <stop offset="0.54" stop-color="#989898" />
-                  <stop offset="0.69" stop-color="#6d6d6d" />
-                  <stop offset="0.84" stop-color="#3a3a3a" />
-                  <stop offset="1" />
-                </linearGradient>
-                <linearGradient
-                  id="linear-gradient-2"
-                  y1="3670.39"
-                  x2="562.5"
-                  y2="2877.68"
-                  xlinkHref="#linear-gradient"
-                />
-              {/* </>
-            ) : (
-              <> */}
-                {/* <linearGradient
-                  id="linear-gradient"
-                  x1="562.5"
-                  y1="1234.39"
-                  x2="562.5"
-                  y2="2416.98"
-                  gradientTransform="matrix(1, 0, 0, -1, 0, 3670.39)"
-                  gradientUnits="userSpaceOnUse"
-                >
-                  <stop offset="0" stop-color="#252525" />
-                  <stop offset="0.32" stop-color="#202020" />
-                  <stop offset="0.68" stop-color="#121212" />
-                  <stop offset="1" />
-                </linearGradient>
-                <linearGradient
-                  id="linear-gradient-2"
-                  x1="562.5"
-                  y1="3670.39"
-                  x2="562.5"
-                  y2="2877.68"
-                  xlinkHref="#linear-gradient"
-                /> */}
-              {/* </>
-            )} */}
-          </defs>
           <title>space_scene</title>
 
-          <g id="moon" ref={moon}>
+          <g ref={moon}>
             <path
               id="circlebackground"
               d="M781.41,1048.21c0,64.89-49.19,117.5-109.86,117.5s-109.86-52.61-109.86-117.5,49.19-117.5,109.86-117.5C732.12,931,781.16,983.43,781.41,1048.21Z"
@@ -261,7 +161,7 @@ const UfoScene = () => {
               fill="#cdcdcd"
             />
           </g>
-          <g id="topmoon" ref={topmoon}>
+          <g ref={topmoon}>
             <path
               id="circlebackground-2"
               data-name="circlebackground"
@@ -336,7 +236,7 @@ const UfoScene = () => {
               fill="#cdcdcd"
             />
           </g>
-          <g id="ufo" ref={ufo}>
+          <g ref={ufo}>
             <path
               id="wheels"
               d="M386.22,1076c-5.05,0-9.18,4.42-9.18,9.82s4.13,9.81,9.18,9.81,9.18-4.41,9.18-9.81S391.27,1076,386.22,1076Zm24.48-6.55c-5.05,0-9.18,4.42-9.18,9.82s4.13,9.82,9.18,9.82,9.18-4.42,9.18-9.82S415.75,1069.48,410.7,1069.48Zm-49,0c-5.05,0-9.18,4.42-9.18,9.82s4.13,9.82,9.18,9.82,9.18-4.42,9.18-9.82S366.79,1069.48,361.74,1069.48Z"
@@ -416,19 +316,10 @@ const UfoScene = () => {
               fill="#2f4956"
             />
           </g>
-          {/* <g id="windowspacers">
-            <rect
-              y="1253.42"
-              width="1125"
-              height="1182.58"
-              fill="url(#linear-gradient)"
-            />
-            <rect width="1125" height="792.72" fill="url(#linear-gradient-2)" />
-          </g> */}
         </svg>
-      {/* </div> */}
+        </div>
     </>
   );
 };
 
-export default UfoScene;
+export default UfoMoon;
