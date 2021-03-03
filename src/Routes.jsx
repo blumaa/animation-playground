@@ -25,7 +25,7 @@ const AppRoutes = (props) => {
               transformOrigin: 'center center',
               // delay:0.5,
               // ease: 'power3.inOut',
-              y: 10,
+            //   y: 10,
               yoyo: false,
               repeat: 0,
           }), "-=3")
