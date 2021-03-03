@@ -15,7 +15,7 @@ const AppRoutes = (props) => {
         gsap.set('.gallery-window', { boxShadow: "0 0 0 0"})
         let tl = gsap.timeline().add(
 
-          gsap.fromTo('.gallery-window', 6, { boxShadow: "0 0 0 0"}, { boxShadow: "5px 5px 5px 0px #868686bf"})
+          gsap.fromTo('.gallery-window', 2, { boxShadow: "0 0 0 0"}, { boxShadow: "5px 5px 5px 0px #868686bf", repeat: 1, yoyo: true})
         ).add(gsap.to('.gallery-window', 10, {
               // borderTopWidth: 1,
               // borderRightWidth: 1,

@@ -50,7 +50,7 @@ const XionLogo = (props) => {
         <>
             <svg
                 version="1.1"
-                viewBox="0 0 100 100"
+                viewBox="-25 -25 150 150"
                 xmlns="http://www.w3.org/2000/svg"
                 className="xion-logo"
                 onClick={() => setTimeLinePause(!timeLinePause)}
