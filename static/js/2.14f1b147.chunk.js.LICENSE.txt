@@ -55,6 +55,16 @@ object-assign
 */
 
 /*!
+ * TextPlugin 3.6.0
+ * https://greensock.com
+ *
+ * @license Copyright 2008-2021, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
  * matrix 3.6.0
  * https://greensock.com
  *
@@ -66,6 +76,16 @@ object-assign
 
 /*!
  * paths 3.6.0
+ * https://greensock.com
+ *
+ * Copyright 2008-2021, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/*!
+ * strings: 3.6.0
  * https://greensock.com
  *
  * Copyright 2008-2021, GreenSock. All rights reserved.
