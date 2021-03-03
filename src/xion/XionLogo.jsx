@@ -22,14 +22,17 @@ const XionLogo = (props) => {
         gsap.set(objects, { transformOrigin: 'center center' })
 
         const spinObjects = () =>
-            gsap.to(objects, 1, {
+            gsap.to(objects, 3, {
                 stagger: 0.2,
                 rotation: 360,
-                ease: 'power3.out',
+                scale: .9,
+                ease: 'back.inOut',
+                // repeat: 1,
+                // yoyo:true
             })
         const flashObjects = () =>
             gsap.to(objects, 0.1, {
-                stagger: 0.4,
+                stagger: 0.1,
                 opacity: 0,
                 yoyo: true,
                 repeat: 1,
@@ -37,7 +40,7 @@ const XionLogo = (props) => {
         tl.current = gsap
             .timeline({ paused: true })
             .add(spinObjects())
-            .add(flashObjects())
+            .add(flashObjects(), "-=2.5")
     }, [])
 
     useEffect(() => {

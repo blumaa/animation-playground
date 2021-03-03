@@ -17,10 +17,10 @@ const AppRoutes = (props) => {
 
           gsap.fromTo('.gallery-window', 6, { boxShadow: "0 0 0 0"}, { boxShadow: "5px 5px 5px 0px #868686bf"})
         ).add(gsap.to('.gallery-window', 10, {
-              borderTopWidth: 1,
-              borderRightWidth: 1,
-              borderBottomWidth: 1,
-              borderLeftWidth: 1,
+              // borderTopWidth: 1,
+              // borderRightWidth: 1,
+              // borderBottomWidth: 1,
+              // borderLeftWidth: 1,
               // autoRound: true,
               transformOrigin: 'center center',
               // delay:0.5,
@@ -36,7 +36,7 @@ const AppRoutes = (props) => {
         <Route path={`/animation-${i}`} component={a.component} key={a.id} />
     ))
     return (
-        <TransitionGroup>
+        <>
             {/* <Switch location={props.location}>
                     {routeList}
                 </Switch> */}
@@ -96,7 +96,7 @@ const AppRoutes = (props) => {
                 </Switch>
             </div>
             {/* </Transition> */}
-        </TransitionGroup>
+        </>
     )
 }
 

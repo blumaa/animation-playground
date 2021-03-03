@@ -15,7 +15,39 @@ const CareflexBackground = () => {
     const beakerBubble3 = useRef(null)
 
     const beakerFill = useRef(null)
+    const bLiquid = useRef(null)
 
+    // const colors = []
+    // while (colors.length < 100) {
+    //     do {
+    //         var color = Math.floor(Math.random() * 1000000 + 1)
+    //     } while (colors.indexOf(color) >= 0)
+    //     colors.push('#' + ('000000' + color.toString(16)).slice(-6))
+    // }
+    // console.log(colors)
+
+    useEffect(() => {
+        gsap.to(bLiquid.current, 1, {
+            fill: (function () {
+                var m = new Array()
+                for (var i = 0; i < 80; i++) {
+                    m.push(
+                        '#' +
+                            Math.floor(Math.random() * 10) +
+                            Math.floor(Math.random() * 10) +
+                            Math.floor(Math.random() * 10)
+                    ) // to construct a color arrary.
+                }
+                return m
+            })(),
+            opacity: .7,
+            scale: .9,
+            transformOrigin: "bottom center",
+            repeat: -1,
+            yoyo:true,
+            ease: "bounce.inOut"
+        })
+    }, [])
     useEffect(() => {
         // liquid movement in bottle
         gsap.fromTo(
@@ -122,6 +154,77 @@ const CareflexBackground = () => {
         timeline.current.reverse()
     }
 
+    useEffect(() => {
+        gsap.to('.atom-bulbs', 1, {
+            scale: 1.2,
+            transformOrigin: 'center center',
+            stagger: 0.4,
+            repeat: -1,
+            yoyo: true,
+            ease: 'power3.out',
+        })
+        gsap.to('.atom', 30, {
+            rotation: 360,
+            transformOrigin: 'center center',
+            repeat: -1,
+            yoyo: true,
+        })
+    }, [])
+
+    useEffect(() => {
+        function random(min, max) {
+            const delta = max - min
+            return (direction = 1) => (min + delta * Math.random()) * direction
+        }
+
+        const can = document.querySelector('.mainlogo')
+
+        const randomX = random(10, 20)
+        const randomY = random(20, 30)
+        const randomDelay = random(0, 1)
+        const randomTime = random(3, 5)
+        const randomTime2 = random(5, 10)
+        const randomAngle = random(8, 12)
+
+        gsap.set(can, {
+            x: randomX(-1),
+            y: randomX(1),
+            rotation: randomAngle(-1),
+        })
+
+        function rotate(target, direction) {
+            gsap.to(target, randomTime2(), {
+                rotation: randomAngle(direction),
+                // delay: randomDelay(),
+                ease: 'sine.inOut',
+                onComplete: rotate,
+                onCompleteParams: [target, direction * -1],
+            })
+        }
+
+        function moveX(target, direction) {
+            gsap.to(target, randomTime(), {
+                x: randomX(direction),
+                ease: 'sine.inOut',
+                onComplete: moveX,
+                onCompleteParams: [target, direction * -1],
+            })
+        }
+
+        function moveY(target, direction) {
+            gsap.to(target, randomTime(), {
+                y: randomY(direction),
+                ease: 'sine.inOut',
+                onComplete: moveY,
+                onCompleteParams: [target, direction * -1],
+            })
+        }
+
+        moveX(can, 1)
+        moveY(can, -1)
+        rotate(can, 1)
+    }, [])
+
     return (
         <>
             <svg
@@ -163,28 +266,28 @@ const CareflexBackground = () => {
                             transform="translate(-69.8 -15.7)"
                         />
                     </g>
-                    <g>
+                    <g className="atom">
                         {/* atoms */}
                         <circle
-                            className="cls-4"
+                            className="atom-bulbs"
                             cx="1053.7"
                             cy="54.9"
                             r="19.5"
                         />
                         <circle
-                            className="cls-4"
+                            className="atom-bulbs"
                             cx="1189.2"
                             cy="82.9"
                             r="23.1"
                         />
                         <circle
-                            className="cls-4"
+                            className="atom-bulbs"
                             cx="1061.5"
                             cy="221.7"
                             r="27.6"
                         />
                         <rect
-                            className="cls-4"
+                            className="atom-bulbs-stem"
                             x="1146.92"
                             y="62.74"
                             width="4.2"
@@ -192,7 +295,7 @@ const CareflexBackground = () => {
                             transform="translate(68.7 649.68) rotate(-34.25)"
                         />
                         <rect
-                            className="cls-4"
+                            className="atom-bulbs-stem"
                             x="1101.94"
                             y="189.28"
                             width="101.69"
@@ -200,7 +303,7 @@ const CareflexBackground = () => {
                             transform="translate(420.64 1138.4) rotate(-64.9)"
                         />
                         <rect
-                            className="cls-4"
+                            className="atom-bulbs-stem"
                             x="1168.98"
                             y="121.05"
                             width="95.5"
@@ -684,6 +787,7 @@ const CareflexBackground = () => {
                             className="cls-3"
                             d="M279.7,1236.3H164.5L113,1321.9a10.48,10.48,0,0,0,9,15.9H322.3a10.48,10.48,0,0,0,9-15.9Z"
                             transform="translate(-69.8 -15.7)"
+                            ref={bLiquid}
                         />
                     </g>
                     <g>
@@ -704,7 +808,7 @@ const CareflexBackground = () => {
                             points="91.9 517.6 66.5 511.3 55.5 552 57.5 552.5 54.4 564.9 59.1 566.1 58.1 570 70 573 71 569.1 75.8 570.3 78.9 557.8 80.8 558.3 91.9 517.6"
                         />
                     </g>
-                    <g id="mainlogo" ref={title}>
+                    <g className="mainlogo" ref={title}>
                         <path
                             className="cls-9"
                             d="M990.6,645.8c5.4,20.9,14.4,50.7,13.7,82.4,37.2,6.4,56.6,11.9,66.8,16.9,12.1-16.7,27.2-36.4,45.2-54.1,1.6-2.2,3.9-3.3,5-8.6,1-5.9-6.8-11.3-14.5-7.8-1.2.4-3.6,2.4-4.6,3.2-14.2,11.6-36,34-56.1,30-21.1-4.1-29.8-47.8-39-66-6.7-13.3-18.5-3.6-16.5,4m83.6,34.2a18.32,18.32,0,1,0-23.9,10,18.41,18.41,0,0,0,23.9-10M793.6,603.7c52.2,72.2,65.3,153.4,68,201.3,25.7-1.5,51.8-5.9,67.7-10.5,3.2-.9,6.1-1.7,9-2.5-.1-4.5-.1-8.9-.1-14.4,0-3,0-6,.2-9a57.19,57.19,0,0,1-14.7-2c-25.8-7.3-37.3-25-39.4-39.1-1.3-8.6,1-15.8,5.9-19,2.3-1.5,7.3-3.4,14.6,1.3,20.7,13.7,29.7,15,41.8,14.6,15-49.9,45.9-96,56.1-111.8,6.3-9.8-5.8-28.9-21.3-13.4-21.3,21.2-53.8,78.6-85.3,74.7-30.5-3.8-63.4-61.3-77.9-83.9-15-18.5-35.8-1.8-24.6,13.7m104.6,43.5a27.07,27.07,0,1,0-28.9-25.1,27,27,0,0,0,28.9,25.1M789.4,703.7a13.77,13.77,0,1,0-7.2,18.1,13.76,13.76,0,0,0,7.2-18.1m-64.9,14.8c34.6,26.9,49.3,51.1,59.5,71.4,1.2,2.4,2.5,5,4,7.5,8,2,16.9,4.1,26.9,5.9a131.94,131.94,0,0,0,15,1.7c-18.7-40.3-6.5-97-.5-121.5,1.4-5.8-5.1-21.5-9.9-11.4-6.7,13.8-17.9,56.9-33.8,59.7-16.3,2.9-40.9-15.6-51.7-24-10.2-6.4-17.2,4.7-9.5,10.7m425.3-179.8a136.24,136.24,0,0,0-20.7-44.6,122.8,122.8,0,0,0-36.8-33.9,147.8,147.8,0,0,0-45.4-17.9,155.41,155.41,0,0,0-48.8-3.4,127.72,127.72,0,0,0-48,14.4,136,136,0,0,0-38.7,31,165.48,165.48,0,0,0-13.9,18.5c-1.5-1.2-2.9-2.5-4.4-3.7A162.17,162.17,0,0,0,866.6,482a127.73,127.73,0,0,0-62.2-13.9c-21.5.6-42.1,7.2-60.2,16.6-4.5,2.4-9,5-13.1,7.7a130.61,130.61,0,0,0-12.6,9.1,127.24,127.24,0,0,0-21.9,22.1A119.83,119.83,0,0,0,673,580.3c-2.8,20.2-.6,40.5,4.8,59.3a166.26,166.26,0,0,0,25.9,51.9,148.65,148.65,0,0,0,10.9,12.9,41.29,41.29,0,0,1,6.2-5.6c-15.5-23.8-31.4-58-32.1-94.9,0-64.9,51.8-117.4,115.8-117.4,47.6,0,88.4,29.1,106.2,70.8h0a1,1,0,0,0,.8.5c.3,0,.3-.2.5-.5,7.4-53.9,54.6-96.1,110.6-96.1,61.9,0,112,50.7,112,113.3,0,19-2.6,35.3-13.2,60.8-4.1,9.2-10.1,19-16.9,28.6a20.9,20.9,0,0,1,2.5-.1,43.38,43.38,0,0,1,22.3,6.3,168.66,168.66,0,0,0,17.2-37.1,173.91,173.91,0,0,0,8.2-46.4,161.38,161.38,0,0,0-4.9-47.9"

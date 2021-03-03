@@ -11,11 +11,14 @@ import BumEdit from './RosaRay/BumEditWithHand'
 import AaronBlumTitle from './port/AaronBlum'
 import Fade from './assets/Transition'
 import UfoMoon from './port/UfoScene'
+import SnapToGridDrag from './assets/SnapToGridDrag'
+import TextScramble from './assets/TextScramble'
 
 const App = () => {
     const [selected, setSelected] = React.useState(0)
 
     const animations = [
+       
         {
             id: Math.random(),
             name: 'aaron blum',
@@ -39,6 +42,18 @@ const App = () => {
             path: 'bum-edit',
             component: BumEdit,
         },
+        {
+          id: Math.random(),
+          name: 'snap to grid',
+          path: 'snap',
+          component: SnapToGridDrag,
+      },
+        {
+          id: Math.random(),
+          name: 'text scramble',
+          path: 'text-scramble',
+          component: TextScramble,
+      },
     ]
 
     return (
