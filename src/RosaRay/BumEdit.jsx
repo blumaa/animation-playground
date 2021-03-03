@@ -100,7 +100,6 @@ const BumEdit = () => {
     }, [])
 
     return (
-        <div className="gallery-window">
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="-10 0 150 300"
@@ -418,7 +417,6 @@ const BumEdit = () => {
                     </g>
                 </g>
             </svg>
-        </div>
     )
 }
 

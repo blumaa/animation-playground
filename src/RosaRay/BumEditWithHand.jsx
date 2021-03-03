@@ -2,11 +2,9 @@ import React, { useEffect, useRef, useState } from 'react'
 import { gsap } from 'gsap'
 import { Draggable } from 'gsap/Draggable'
 import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin'
-import { Transition } from 'react-transition-group'
 gsap.registerPlugin(Draggable)
 gsap.registerPlugin(DrawSVGPlugin)
 
-const startState = { autoAlpha: 0, y: -50 }
 
 const BumEdit = (props) => {
     const redHair1 = useRef(null)
@@ -112,23 +110,24 @@ const BumEdit = (props) => {
         const rosaHair = () =>
             gsap.fromTo(
                 redHairs,
-                20,
-                { drawSVG: '0% 0%' },
+                3,
+                { drawSVG: '0% 1%', stroke: '#d4c21c', },
                 {
                     drawSVG: '0% 100%',
                     stagger: { from: 'random', amount: 0.5 },
-                    visibility: 'visible',
-                    stroke: '#757575',
+                    opacity: 'visible',
+                    stroke: '#d4c21c',
+                    repeat: -1,
                     ease:
                         "rough({ template: none.out, strength: 1, points: 20, taper: 'none', randomize: true, clamp: false})",
                 }
             )
         const rosaHair2 = () =>
-            gsap.to(redHairs, 4, { stagger: 0.5, fill: '#ff4d4d' })
+            gsap.fromTo(redHairs, 1, {scale: .98},  { stagger: 0.2, fill: '#ff4d4d', scale: 1, repeat: -1, yoyo: true })
         const bodyOutline = () =>
             gsap.fromTo(
                 bLines,
-                20,
+                3,
                 { drawSVG: '0% 0%' },
                 {
                     drawSVG: '0% 100%',
@@ -139,41 +138,48 @@ const BumEdit = (props) => {
                 }
             )
         const bodyLinesFill = () =>
-            gsap.to(bLines, 20, { stagger: 0.5, fill: '#4a4a4a' })
+            gsap.to(bLines, 3, { stagger: 0.5, fill: '#4a4a4a' })
 
         animation.current = gsap
-            .timeline({ paused: true, repeat: -1, yoyo: true })
+            .timeline({ paused: true, repeat: -1 })
             .addLabel('start')
             .add(rosaHair())
-            .add(rosaHair2(), '-=15')
+            .add(rosaHair2(), 'start')
             .add(bodyOutline(), 'start')
-            .add(bodyLinesFill(), '-=15')
+            .add(bodyLinesFill(), 'start')
+            
+    }, [])
+
+    useEffect(() => {
+        gsap.to('#arrow', .3, { transformOrigin: "center center", scale: 1.2, repeat: 6, yoyo:true, opacity: .5})
+
     }, [])
 
     useEffect(() => {
         gsap.set('#hand', { transformOrigin: 'center center' })
-        const spank = () => gsap.to('#hand', 1, { rotation: 440 })
+        const spank = () => gsap.to('#hand', .3, { rotation: 440 })
         timeLine2.current = gsap.timeline().add(spank())
     }, [])
 
+    // useEffect(() => {
+    //     if (timeLinePause) {
+    //         animation.current.reverse()
+    //     } else {
+    //         animation.current.play()
+    //     }
+    // }, [timeLinePause])
+    
     useEffect(() => {
-        if (timeLinePause) {
-            animation.current.reverse()
-        } else {
-            animation.current.play()
-        }
-    }, [timeLinePause])
-
-    useEffect(() => {
-        if (timeLine2Pause) {
-            timeLine2.current.reverse()
-        } else {
-            timeLine2.current.play()
-        }
+        animation.current.play(0)
+        timeLine2.current.play(0)
+        // if (timeLine2Pause) {
+        //     timeLine2.current.play(0)
+        // } else {
+        //     timeLine2.current.play()
+        // }
     }, [timeLine2Pause])
 
     return (
-        <div className="gallery-window">
             <svg
                 version="1.1"
                 viewBox="0 0 200 250"
@@ -540,9 +546,9 @@ const BumEdit = (props) => {
                     fontSize="3px"
                     xmlSpace="preserve"
                 >
-                    <tspan x="1.400816" y="185.13454">
+                    {/* <tspan x="1.400816" y="185.13454">
                         drag the hand and click the arrow
-                    </tspan>
+                    </tspan> */}
                 </text>
                 <g
                     id="arrow"
@@ -559,7 +565,6 @@ const BumEdit = (props) => {
                     <path d="m26.375 207.37 6.6766-6.5971 2.3749 9.0806z" />
                 </g>
             </svg>
-        </div>
     )
 }
 
