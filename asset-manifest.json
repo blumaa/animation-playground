@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/animation-playground/static/css/main.b3c40fe3.chunk.css",
-    "main.js": "/animation-playground/static/js/main.8408698a.chunk.js",
-    "main.js.map": "/animation-playground/static/js/main.8408698a.chunk.js.map",
+    "main.js": "/animation-playground/static/js/main.d6ca6347.chunk.js",
+    "main.js.map": "/animation-playground/static/js/main.d6ca6347.chunk.js.map",
     "runtime-main.js": "/animation-playground/static/js/runtime-main.90dce66f.js",
     "runtime-main.js.map": "/animation-playground/static/js/runtime-main.90dce66f.js.map",
     "static/js/2.14f1b147.chunk.js": "/animation-playground/static/js/2.14f1b147.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.90dce66f.js",
     "static/js/2.14f1b147.chunk.js",
     "static/css/main.b3c40fe3.chunk.css",
-    "static/js/main.8408698a.chunk.js"
+    "static/js/main.d6ca6347.chunk.js"
   ]
 }
