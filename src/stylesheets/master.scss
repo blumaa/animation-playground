@@ -22,9 +22,8 @@ body {
     background-color: #f8f8ff;
     // overflow: hidden;
     height: 100%;
-    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     svg {
         cursor: pointer;
     }
@@ -39,25 +38,25 @@ body {
 
 .gallery {
     display: grid;
-    grid-template-columns: 18% auto 18%;
-    grid-gap: 2%;
-    // border: 1px solid green;
+    grid-template-columns: 15% auto 15%;
+    // grid-gap: 1%;
     height: 100%;
     // align-items: center;
-    // justify-content: center;
-
+    justify-content: space-between;
+    // border: 1px solid blue;
+    
     &__button {
         // border: 1px solid green;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         &--back {
-            align-self: flex-end;
-            width: 90%;
+            // border: 1px solid red;
+            width: 100%;
         }
         &--next {
-            overflow: hidden;
-            width: 90%;
+            // overflow: hidden;
+            width: 100%;
         }
     }
     &__feature {
@@ -142,4 +141,8 @@ body {
 
 #title{
     margin-bottom: 2rem;
+}
+
+#scramble-bounds{
+    width: 40rem;
 }

@@ -61,7 +61,7 @@ const KinkyTowers1 = () => {
 
         // gsap.set('#topbulbs1', { opacity: 0 })
 
-        const time = .5
+        const time = 2
 
         const bubbleAppear = (bubble) => {
             const tl = gsap.timeline()
@@ -82,7 +82,7 @@ const KinkyTowers1 = () => {
             const tl = gsap.timeline()
 
             tl.add(
-                gsap.to(bubble, 1, {
+                gsap.to(bubble, .5, {
                     scale: 1.8,
                     transformOrigin: 'center center',
                     opacity: 0,

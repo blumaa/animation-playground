@@ -68,21 +68,20 @@ const App = () => {
                     <KinkyTowers1 />
                 </div>
                 <div className="gallery__feature">
-
-                <Route
-                    path="/"
-                    render={(props) => (
-                        <AppRoutes {...props} animations={animations} />
-                    )}
-                />
-                <div className="copyright">
-                    <div className="copyright__item">
-                        All images and animations © 2020 Aaron Blum
+                    <Route
+                        path="/"
+                        render={(props) => (
+                            <AppRoutes {...props} animations={animations} />
+                        )}
+                    />
+                    <div className="copyright">
+                        <div className="copyright__item">
+                            All images and animations © 2020 Aaron Blum
+                        </div>
+                        <div className="copyright__item">
+                            <a href="http://aaronblum.co">aaronblum.co</a>
+                        </div>
                     </div>
-                    <div className="copyright__item">
-                        <a href="http://aaronblum.co">aaronblum.co</a>
-                    </div>
-                </div>
                 </div>
                 <div className="gallery__button">
                     <NextButton
