@@ -11,6 +11,7 @@
     margin: 0;
     padding: 0;
     // box-sizing: border-box;
+    // border: 1px solid blueviolet;
 }
 
 html,
@@ -38,10 +39,12 @@ body {
 
 .gallery {
     display: grid;
-    grid-template-columns: 20% auto 20%;
+    grid-template-columns: 18% auto 18%;
     grid-gap: 2%;
     // border: 1px solid green;
     height: 100%;
+    // align-items: center;
+    // justify-content: center;
 
     &__button {
         // border: 1px solid green;
@@ -49,6 +52,7 @@ body {
         flex-direction: column;
         justify-content: space-between;
         &--back {
+            align-self: flex-end;
             width: 90%;
         }
         &--next {
@@ -62,12 +66,16 @@ body {
         justify-content: space-between;
         flex-direction: column;
         &--window{
-            padding-top: 1rem;
-        }
-        svg {
-            // border: 1px solid teal;
-            // box-shadow: 5px 5px 5px 0px #868686bf;
-            height: 20rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            padding-top: 3rem;
+            svg {
+                height: 20rem;
+                // border: 1px solid teal;
+                // box-shadow: 5px 5px 5px 0px #868686bf;
+            }
         }
     }
 }
@@ -130,4 +138,8 @@ body {
 .new-text {
     color: pink;
     background-color: black;
+}
+
+#title{
+    margin-bottom: 2rem;
 }
