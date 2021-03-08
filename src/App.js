@@ -42,23 +42,17 @@ const App = () => {
             path: 'bum-edit',
             component: BumEdit,
         },
-        {
-            id: Math.random(),
-            name: 'snap to grid',
-            path: 'snap',
-            component: SnapToGridDrag,
-        },
+        // {
+        //     id: Math.random(),
+        //     name: 'snap to grid',
+        //     path: 'snap',
+        //     component: SnapToGridDrag,
+        // },
         {
             id: Math.random(),
             name: 'text scramble',
             path: 'text-scramble',
             component: TextScramble,
-        },
-        {
-            id: Math.random(),
-            name: 'Kinky Towers',
-            path: 'kinky-towers',
-            component: KinkyTowers1,
         },
     ]
 
@@ -71,13 +65,25 @@ const App = () => {
                         selected={selected}
                         animations={animations}
                     />
+                    <KinkyTowers1 />
                 </div>
+                <div className="gallery__feature">
+
                 <Route
                     path="/"
                     render={(props) => (
                         <AppRoutes {...props} animations={animations} />
                     )}
                 />
+                <div className="copyright">
+                    <div className="copyright__item">
+                        All images and animations © 2020 Aaron Blum
+                    </div>
+                    <div className="copyright__item">
+                        <a href="http://aaronblum.co">aaronblum.co</a>
+                    </div>
+                </div>
+                </div>
                 <div className="gallery__button">
                     <NextButton
                         setSelected={setSelected}
@@ -90,14 +96,6 @@ const App = () => {
                 {/* <div className="gallery-buttons">
                     <Menu />
                 </div> */}
-            </div>
-            <div className="copyright">
-                <div className="copyright__item">
-                    All images and animations © 2020 Aaron Blum
-                </div>
-                <div className="copyright__item">
-                    <a href="http://aaronblum.co">aaronblum.co</a>
-                </div>
             </div>
         </BrowserRouter>
     )

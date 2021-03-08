@@ -10,24 +10,27 @@
 *::after {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    // box-sizing: border-box;
 }
 
 html,
 body {
+    // border: 1px solid blueviolet;
     // font-size: 1.6vw;
-    font-family: 'Roboto';
-    font-style: normal;
-
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f8ff;
+    // overflow: hidden;
     height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     svg {
         cursor: pointer;
     }
 }
 
 #root {
-    // border: 13px solid blueviolet;
-    height: 100%;
+    // height: 100%;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -35,37 +38,37 @@ body {
 
 .gallery {
     display: grid;
-    grid-template-columns: 15% auto 15%;
+    grid-template-columns: 20% auto 20%;
     grid-gap: 2%;
     // border: 1px solid green;
     height: 100%;
 
     &__button {
         // border: 1px solid green;
-        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         &--back {
-            width: 100%;
+            width: 90%;
         }
         &--next {
-            width: 100%;
+            overflow: hidden;
+            width: 90%;
         }
     }
-}
-
-.gallery-window {
-    display: flex;
-    //   justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    border: 1px solid teal;
-    // margin-top: 1rem;
-    // margin-bottom: 1rem;
-    // box-shadow: 5px 5px 5px 0px #868686bf;
-    // overflow: hidden;
-    // height: calc(100% - 80px);
-    // padding: 2rem;
-    svg {
-        height: 40rem;
+    &__feature {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
+        &--window{
+            padding-top: 1rem;
+        }
+        svg {
+            // border: 1px solid teal;
+            // box-shadow: 5px 5px 5px 0px #868686bf;
+            height: 20rem;
+        }
     }
 }
 
@@ -84,10 +87,10 @@ body {
 
 .copyright {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
     font-size: 0.6rem;
-    color: rgb(116, 116, 116);
+    color: rgb(198, 198, 198);
     // border: 1px solid teal;
     &__item {
         display: flex;
@@ -127,6 +130,4 @@ body {
 .new-text {
     color: pink;
     background-color: black;
-    font-family: 'Roboto';
-    font-style: normal;
 }
