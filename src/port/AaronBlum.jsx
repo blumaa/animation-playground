@@ -398,6 +398,7 @@ const AaronBlumTitle = () => {
       id="baselayer"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="60 0 1291 592"
+      className="aaron-title"
     >
       <title>portfolioanimation</title>
       {/* <g>

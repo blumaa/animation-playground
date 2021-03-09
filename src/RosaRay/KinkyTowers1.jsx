@@ -116,7 +116,7 @@ const KinkyTowers1 = () => {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 679 908.3"
         >
-            <title>kinky_twoer</title>
+            <title>kinky_tower</title>
             <g id="buildingsidelines">
                 <g>
                     <path

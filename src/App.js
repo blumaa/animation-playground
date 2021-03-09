@@ -65,7 +65,9 @@ const App = () => {
                         selected={selected}
                         animations={animations}
                     />
-                    <KinkyTowers1 />
+                    <div className="gallery__button--footer">
+                        <KinkyTowers1 />
+                    </div>
                 </div>
                 <div className="gallery__feature">
                     <Route

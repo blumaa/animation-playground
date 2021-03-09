@@ -48,6 +48,8 @@ const XionLogo = (props) => {
     }, [timeLinePause])
     return (
         <>
+                    <div className="gallery-label">click the logo</div>
+
             <svg
                 version="1.1"
                 viewBox="-25 -25 150 150"
@@ -95,7 +97,6 @@ const XionLogo = (props) => {
                     </g>
                 </g>
             </svg>
-            <div className="gallery-label">click the logo</div>
         </>
     )
 }
