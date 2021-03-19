@@ -14,6 +14,7 @@ import UfoMoon from './port/UfoScene'
 import SnapToGridDrag from './assets/SnapToGridDrag'
 import TextScramble from './assets/TextScramble'
 import KinkyTowers1 from './RosaRay/KinkyTowers1'
+import ShowerRosa from './RosaRay/ShowerRosa'
 
 const App = () => {
     const [selected, setSelected] = React.useState(0)
@@ -25,6 +26,7 @@ const App = () => {
             path: 'aaron-blum',
             component: AaronBlumTitle,
         },
+        { id: Math.random(), name: 'shower rosa', component: ShowerRosa },
         { id: Math.random(), name: 'ufo moon', component: UfoMoon },
         { id: Math.random(), name: 'xion logo', component: XionLogo },
         { id: Math.random(), name: 'straddle', component: Straddle },

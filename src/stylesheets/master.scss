@@ -168,17 +168,35 @@ body {
 }
 
 #scramble-bounds {
-        //   border: 1px solid red;
+    //   border: 1px solid red;
     position: absolute;
     left: 0;
     top: 0;
     height: 100%;
     width: 100%;
-    &__title{
+    &__title {
         padding: 1rem;
     }
-    &__body{
+    &__body {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+}
+
+.rosa-shower-cls-1 {
+    fill: #222;
+}
+
+.rosa-shower-cls-2 {
+    fill: #e36869;
+}
+
+.rosa-shower-cls-3 {
+    fill: #393939;
+}
+
+.rosa-shower-cls-4 {
+    fill: none;
+    stroke: #f8e1d8;
+    stroke-miterlimit: 10;
 }
